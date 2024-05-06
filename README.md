@@ -9,6 +9,7 @@
 
 ## Added hosts:
 - Unified Hosts
+- Unified hosts + fakenews + gambling
 - Unified hosts + fakenews + gambling + social
 - Unified hosts + fakenews + gambling + porn + social
 - more will be added soon.... 
