@@ -7,29 +7,38 @@ install_hosts() {
     . $MODPATH/addon/install.sh
     ui_print " Install Unified Hosts (UH)?"
     ui_print " "
-    ui_print "  Vol+ = Yes"
-    ui_print "  Vol- = No"
+    ui_print "  Vol+ = Select"
+    ui_print "  Vol- = Change"
     ui_print " "
     if chooseport; then
         . $MODPATH/host-installer/uh.sh
     else
-        ui_print " Install UH + fakenews + gambling + social ?"
+        ui_print " Install UH + fakenews + gambling?"
         ui_print " "
-        ui_print "  Vol+ = Yes"
-        ui_print "  Vol- = No"
+        ui_print "  Vol+ = Select"
+        ui_print "  Vol- = Change"
         ui_print " "
         if chooseport; then
-            . $MODPATH/host-installer/uhfgs.sh
+            . $MODPATH/host-installer/uhfg.sh
         else
-            ui_print " Install Unified hosts + fakenews + gambling + porn + social?"
+            ui_print " Install UH + fakenews + gambling + social?"
             ui_print " "
-            ui_print "  Vol+ = Yes"
-            ui_print "  Vol- = No"
+            ui_print "  Vol+ = Select"
+            ui_print "  Vol- = Change"
             ui_print " "
             if chooseport; then
-                . $MODPATH/host-installer/uhfgps.sh
+                . $MODPATH/host-installer/uhfgs.sh
             else
-                ui_print "- Exiting"
+                ui_print " Install UH + fakenews + gambling + porn + social?"
+                ui_print " "
+                ui_print "  Vol+ = Select"
+                ui_print "  Vol- = Change"
+                ui_print " "
+                if chooseport; then
+                . $MODPATH/host-installer/uhfgps.sh
+                else
+                    ui_print "- Exiting"
+                fi
             fi
         fi
     fi
@@ -51,7 +60,7 @@ cleanup() {
 run_install() {
     unzip -o "$ZIPFILE" -x 'META-INF/*' -d $MODPATH >&2
     ui_print " "
-    ui_print "- Installing & patching hosts"
+    ui_print "- Installing hosts"
     install_hosts
     patch_hosts
     ui_print " "
