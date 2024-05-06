@@ -1,3 +1,7 @@
+## v1.3 [ Release | 20240506 ]
+- Changed module name to `Systemless Adblocker`
+- Minor text corrections.
+
 ## v1.2 [ Release | 20240506 ]
 - Added Support for Unified Hosts + fakenews + gambling.
 ### Below are the currently supported hosts:

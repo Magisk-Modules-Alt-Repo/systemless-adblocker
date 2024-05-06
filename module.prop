@@ -1,7 +1,7 @@
 id=systemless_adblocker
-name=Systemless Adblocker - Ultimate 
-version=1.2
-versionCode=17
+name=Systemless Adblocker
+version=1.3
+versionCode=103
 author=burhanverse
-description=An efficient ad blocker based on @gloeyisk's systemless-host module with no user interface & the lastest hosts from github@StevenBlack
+description=An efficient ad blocker based out of @gloeyisk's systemless-host module with no user interface & the lastest hosts from github@StevenBlack
 updateJson=https://raw.githubusercontent.com/Burhanverse/systemless-adblocker/main/update.json

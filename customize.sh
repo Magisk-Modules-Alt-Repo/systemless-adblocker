@@ -32,7 +32,7 @@ install_hosts() {
                 ui_print " Install UH + fakenews + gambling + porn + social?"
                 ui_print " "
                 ui_print "  Vol+ = Select"
-                ui_print "  Vol- = Change"
+                ui_print "  Vol- = Exit"
                 ui_print " "
                 if chooseport; then
                 . $MODPATH/host-installer/uhfgps.sh
