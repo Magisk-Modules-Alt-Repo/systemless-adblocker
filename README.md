@@ -4,7 +4,7 @@
 ## Overview:
 - The ultimate ad blocker, with no user interface
 - Added key-selector to choose from different hosts 
-- Automatically downloads the lastest unified-hosts from [@StevenBlack](https://github.com/StevenBlack/hosts) hosts sources
+- Automatically downloads the latest files from [@StevenBlack](https://github.com/StevenBlack/hosts) hosts sources
 - Support Magisk & KernelSU
 
 ## Added hosts:

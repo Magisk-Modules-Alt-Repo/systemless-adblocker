@@ -35,7 +35,7 @@ install_hosts() {
                 ui_print "  Vol- = Exit"
                 ui_print " "
                 if chooseport; then
-                . $MODPATH/host-installer/uhfgps.sh
+                    . $MODPATH/host-installer/uhfgps.sh
                 else
                     ui_print "- Exiting"
                 fi

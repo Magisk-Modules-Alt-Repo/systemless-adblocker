@@ -13,7 +13,7 @@ chooseport_legacy() {
         elif [ $sel -eq 41 ]; then
             return 1
         elif $error; then
-    		abort "  No version selected, please restart installation"
+            abort "  No version selected, please restart installation"
         else
             error=true
         fi
@@ -22,18 +22,19 @@ chooseport_legacy() {
 
 chooseport() {
     [ "$1" ] && local delay=$1 || local delay=3
-    local error=false 
+    local error=false
     while true; do
         local count=0
         while true; do
-            timeout $delay /system/bin/getevent -lqc 1 2>&1 > $TMPDIR/events &
-            sleep 0.5; count=$((count + 1))
-            if (`grep -q 'KEY_VOLUMEUP *DOWN' $TMPDIR/events`); then
+            timeout $delay /system/bin/getevent -lqc 1 2>&1 >$TMPDIR/events &
+            sleep 0.5
+            count=$((count + 1))
+            if ($(grep -q 'KEY_VOLUMEUP *DOWN' $TMPDIR/events)); then
                 return 0
-            elif (`grep -q 'KEY_VOLUMEDOWN *DOWN' $TMPDIR/events`); then
+            elif ($(grep -q 'KEY_VOLUMEDOWN *DOWN' $TMPDIR/events)); then
                 return 1
             fi
-            [ $count -gt 30  ] && break
+            [ $count -gt 30 ] && break
         done
         if $error; then
             export chooseport=chooseport_legacy VKSEL=chooseport_legacy
@@ -41,7 +42,7 @@ chooseport() {
             return $?
         else
             error=true
-   		 echo " "
+            echo " "
             echo "  Volume key not detected, try again"
             echo " "
         fi
