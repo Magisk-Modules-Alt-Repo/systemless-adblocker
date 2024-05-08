@@ -1,27 +1,28 @@
+## Systemless Adblocker
 Telegram:
 https://t.me/burhanverse
 
-# v1.5
-- Newly Added: nified Hosts + fakenews + gambling + porn.
+### v1.5
+- Newly Added: Unified Hosts + fakenews + gambling + porn.
 
-# v1.4
+### v1.4
 - Improve code formating and minor text correction.
 
-# v1.3
+### v1.3
 - Changed module name to Systemless Adblocker.
 - Minor text corrections.
 
-# v1.2
+### v1.2
 - Newly Added: Unified Hosts + fakenews + gambling.
 - Unified Hosts.
 - Unified hosts + fakenews + gambling + social.
 - Unified hosts + fakenews + gambling + porn + social.
 - more will be added soon...
 
-# v1.1
+### v1.1
 - Simplified the main script logic.
 - Made a separate dir for the host installer scripts.
 
-# v1.0
+### v1.0
 - Added key-selector to switch between different hosts.
 - Initial release.
