@@ -7,9 +7,10 @@
 - Automatically downloads the latest files from [@StevenBlack](https://github.com/StevenBlack/hosts) hosts sources
 - Support Magisk & KernelSU
 
-## Added hosts:
+## Currently supported hosts:
 - Unified Hosts
 - Unified hosts + fakenews + gambling
+- Unified hosts + fakenews + gambling + porn
 - Unified hosts + fakenews + gambling + social
 - Unified hosts + fakenews + gambling + porn + social
 - more will be added soon.... 

@@ -29,15 +29,24 @@ install_hosts() {
             if chooseport; then
                 . $MODPATH/host-installer/uhfgs.sh
             else
-                ui_print " Install UH + fakenews + gambling + porn + social?"
+                ui_print " Install UH + fakenews + gambling + porn?"
                 ui_print " "
                 ui_print "  Vol+ = Select"
-                ui_print "  Vol- = Exit"
+                ui_print "  Vol- = Change"
                 ui_print " "
                 if chooseport; then
-                    . $MODPATH/host-installer/uhfgps.sh
+                    . $MODPATH/host-installer/uhfgp.sh
                 else
-                    ui_print "- Exiting"
+                    ui_print " Install UH + fakenews + gambling + porn + social?"
+                    ui_print " "
+                    ui_print "  Vol+ = Select"
+                    ui_print "  Vol- = Exit"
+                    ui_print " "
+                    if chooseport; then
+                        . $MODPATH/host-installer/uhfgps.sh
+                    else
+                        ui_print "- Exiting"
+                    fi
                 fi
             fi
         fi

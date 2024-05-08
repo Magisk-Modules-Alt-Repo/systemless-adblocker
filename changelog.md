@@ -1,23 +1,27 @@
-## v1.3 [ Release | 20240506 ]
-- Changed module name to `Systemless Adblocker`
+Telegram:
+https://t.me/burhanverse
+
+# v1.5
+- Newly Added: nified Hosts + fakenews + gambling + porn.
+
+# v1.4
+- Improve code formating and minor text correction.
+
+# v1.3
+- Changed module name to Systemless Adblocker.
 - Minor text corrections.
 
-## v1.2 [ Release | 20240506 ]
-- Added Support for Unified Hosts + fakenews + gambling.
-### Below are the currently supported hosts:
+# v1.2
+- Newly Added: Unified Hosts + fakenews + gambling.
 - Unified Hosts.
 - Unified hosts + fakenews + gambling + social.
 - Unified hosts + fakenews + gambling + porn + social.
 - more will be added soon...
 
-## v1.1 [ Release | 20240506 ]
+# v1.1
 - Simplified the main script logic.
 - Made a separate dir for the host installer scripts.
 
-## v1.0 [ Release | 20240506 ]
-- Added key-selector to switch between different hosts
-### Below are the currently supported hosts:
-- Unified Hosts.
-- Unified hosts + fakenews + gambling + social.
-- Unified hosts + fakenews + gambling + porn + social.
-- more will be added soon...
+# v1.0
+- Added key-selector to switch between different hosts.
+- Initial release.
