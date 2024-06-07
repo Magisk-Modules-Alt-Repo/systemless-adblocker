@@ -1,7 +1,10 @@
 #!/system/bin/sh
 
 # Systemless Hosts by the open source loving GL-DP and all contributors;
-# Consolidating and extending hosts files from several well-curated sources
+# Consolidating and extending hosts files from several well-curated sources.
+#
+# set permissions to executables
+chmod 0755 $MODPATH/host-installer/curl
 
 install_hosts() {
     . $MODPATH/addon/install.sh

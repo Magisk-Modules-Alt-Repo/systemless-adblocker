@@ -2,6 +2,9 @@
 Telegram:
 https://t.me/burhanverse
 
+### v1.6
+- Include and use curl binary within the module as in case curl is missing in your system.
+
 ### v1.5
 - Newly Added: Unified Hosts + fakenews + gambling + porn.
 
