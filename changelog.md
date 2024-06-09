@@ -3,6 +3,7 @@ Telegram:
 https://t.me/burhanverse
 
 ### v1.6
+- Initial release for Magisk-Modules-Alt-Repo.
 - Include and use curl binary within the module as in case curl is missing in your system.
 
 ### v1.5
