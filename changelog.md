@@ -2,6 +2,10 @@
 Telegram:
 https://t.me/burhanverse
 
+## v1.7
+- Newly Added: Unified Hosts + fakenews
+- Reminder for existing users to update as this will download and apply the latest hosts.
+
 ### v1.6
 - Initial release for Magisk-Modules-Alt-Repo.
 - Include and use curl binary within the module as in case curl is missing in your system.
