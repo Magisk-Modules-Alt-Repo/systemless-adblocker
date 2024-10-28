@@ -1,0 +1,75 @@
+name: Auto Update and Release
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 0 15 * *'
+
+jobs:
+  update-and-release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Read Current Version
+        id: read_version
+        run: |
+          current_version=$(grep '^version=' module.prop | cut -d'=' -f2)
+          current_version_code=$(grep '^versionCode=' module.prop | cut -d'=' -f2)
+          
+          minor_version=$(echo "$current_version" | cut -d'.' -f2)
+          new_minor_version=$((minor_version + 1))
+          new_version="1.${new_minor_version}"
+          new_version_code=$((current_version_code + 1))
+
+          echo "new_version=$new_version" >> $GITHUB_ENV
+          echo "new_version_code=$new_version_code" >> $GITHUB_ENV
+
+      - name: Update module.prop
+        run: |
+          sed -i "s/^version=.*/version=${{ env.new_version }}/" module.prop
+          sed -i "s/^versionCode=.*/versionCode=${{ env.new_version_code }}/" module.prop
+          sed -i 's/^author=.*/author=burhanverse/' module.prop
+
+      - name: Update changelog.md
+        run: |
+          sed -i "5s/^/## v${{ env.new_version }}\n- Latest hosts.\n\n/" changelog.md
+
+      - name: Update update.json
+        run: |
+          cat <<EOT > update.json
+          {
+            "version": "${{ env.new_version }}",
+            "versionCode": ${{ env.new_version_code }},
+            "zipUrl": "https://github.com/Magisk-Modules-Alt-Repo/systemless-adblocker/releases/download/${{ env.new_version }}/Systemless_Adblocker_V${{ env.new_version }}.zip",
+            "changelog": "https://raw.githubusercontent.com/Magisk-Modules-Alt-Repo/systemless-adblocker/main/changelog.md"
+          }
+          EOT
+
+      - name: Commit and Push Changes
+        run: |
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+          git add module.prop changelog.md update.json
+          git commit -m "Update to version ${{ env.new_version }}"
+          git push
+
+      - name: Install zip
+        run: sudo apt-get install -y zip
+
+      - name: Package Repository as Magisk Flashable ZIP
+        run: |
+          zip -r Systemless_Adblocker_V${{ env.new_version }}.zip . -x ".github/*" ".git/*"
+          
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ env.new_version }}
+          release_name: Systemless Adblocker v${{ env.new_version }}
+          body: "Automated release of Systemless Adblocker v${{ env.new_version }}"
+          files: Systemless_Adblocker_V${{ env.new_version }}.zip
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          
