@@ -1,6 +1,6 @@
 {
-    "version": "1.7",
-    "versionCode": 107,
-    "zipUrl": "https://github.com/Magisk-Modules-Alt-Repo/systemless-adblocker/releases/download/1.7/Systemless_Adblocker_V1.7.zip",
-    "changelog": "https://raw.githubusercontent.com/Magisk-Modules-Alt-Repo/systemless-adblocker/main/changelog.md"
+  "version": "1.8",
+  "versionCode": 108,
+  "zipUrl": "https://github.com/Magisk-Modules-Alt-Repo/systemless-adblocker/releases/download/1.8/Systemless_Adblocker_V1.8.zip",
+  "changelog": "https://raw.githubusercontent.com/Magisk-Modules-Alt-Repo/systemless-adblocker/main/changelog.md"
 }

@@ -2,6 +2,9 @@
 Telegram:
 https://t.me/burhanverse
 
+## v1.8
+- Latest hosts.
+
 ## v1.7
 - Newly Added: Unified Hosts + fakenews
 - Reminder for existing users to update as this will download and apply the latest hosts.
