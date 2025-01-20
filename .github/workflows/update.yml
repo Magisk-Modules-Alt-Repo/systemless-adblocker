@@ -1,17 +1,11 @@
-name: Auto Update and Release
+name: Update and Release
 
 on:
-  workflow_dispatch:
-
-  push:
-    branches:
-      - main
-
-  schedule:
-    - cron: '0 0 15 * *'
+  repository_dispatch:
+    types: [new-release]
 
 jobs:
-  update-and-release:
+  update:
     runs-on: ubuntu-latest
 
     steps:
@@ -40,7 +34,7 @@ jobs:
 
       - name: Update changelog.md
         run: |
-          sed -i "5s/^/## v${{ env.new_version }}\n- Latest hosts.\n\n/" changelog.md
+          sed -i "5s/^/## v${{ env.new_version }}\n- Updated hosts.\n\n/" changelog.md
 
       - name: Update update.json
         run: |
@@ -55,8 +49,8 @@ jobs:
 
       - name: Commit and Push Changes
         run: |
-          git config user.name "GitHub Actions"
-          git config user.email "actions@github.com"
+          git config user.name "burhanverse"
+          git config user.email "contact@burhanverse.eu.org"
           git add module.prop changelog.md update.json
           git commit -m "Update to version ${{ env.new_version }}"
           git push
