@@ -17,6 +17,9 @@ https://t.me/burhanverse
 ## v
 - Updated hosts.
 
+## v
+- Updated hosts.
+
 ## v1.10
 - Latest hosts.
 
