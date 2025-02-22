@@ -2,6 +2,9 @@
 Telegram:
 https://t.me/burhanverse
 
+## v1.11
+- Updated hosts.
+
 ## v1.1
 - Updated hosts.
 
