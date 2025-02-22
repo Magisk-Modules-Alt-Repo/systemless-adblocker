@@ -1,8 +1,11 @@
 name: Update and Release
 
 on:
-  repository_dispatch:
-    types: [new-release]
+  workflow_dispatch:
+
+  push:
+    branches:
+      - main
 
 jobs:
   update:
