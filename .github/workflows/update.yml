@@ -2,7 +2,6 @@ name: Update and Release
 
 on:
   workflow_dispatch:
-
   push:
     branches:
       - main
@@ -15,15 +14,30 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: Read Current Version
-        id: read_version
+      - name: Fetch Tags
+        run: git fetch --tags
+
+      - name: Determine New Version
+        id: versioning
         run: |
+          latest_tag=$(git tag --list "1.*" --sort=-v:refname | head -n 1)
+          if [ -z "$latest_tag" ]; then
+            latest_tag="1.0"
+          fi
+          echo "Latest tag from git: $latest_tag"
           current_version=$(grep '^version=' module.prop | cut -d'=' -f2)
+          echo "Current version in module.prop: $current_version"
+          latest_minor=$(echo "$latest_tag" | cut -d'.' -f2)
+          current_minor=$(echo "$current_version" | cut -d'.' -f2)
+          if [ "$latest_minor" -gt "$current_minor" ]; then
+            base_minor="$latest_minor"
+          else
+            base_minor="$current_minor"
+          fi
+          new_minor=$((base_minor + 1))
+          new_version="1.${new_minor}"
+          echo "New version will be: $new_version"
           current_version_code=$(grep '^versionCode=' module.prop | cut -d'=' -f2)
-          
-          minor_version=$(echo "$current_version" | cut -d'.' -f2)
-          new_minor_version=$((minor_version + 1))
-          new_version="1.${new_minor_version}"
           new_version_code=$((current_version_code + 1))
 
           echo "new_version=$new_version" >> $GITHUB_ENV
@@ -64,7 +78,7 @@ jobs:
       - name: Package Repository as Magisk Flashable ZIP
         run: |
           zip -r Systemless_Adblocker_V${{ env.new_version }}.zip . -x ".github/*" ".git/*"
-          
+
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
         with:
@@ -74,4 +88,3 @@ jobs:
           files: Systemless_Adblocker_V${{ env.new_version }}.zip
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          
